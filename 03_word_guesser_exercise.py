@@ -5,7 +5,7 @@
 import random
 
 words = ["lecture", "library", "seminar", "campus", "zurich"]
-secret = random.choice(words)  # Use "tram" while testing.
+secret = "tram"  # Use "tram" while testing.
 guessed = ""
 mistakes = 0
 
@@ -15,26 +15,28 @@ while mistakes < 6:
     letter = input("Your letter: ")
 
     # Add letter to guessed.
+    guessed += letter
 
     if letter not in secret:
         # Increase mistakes by one.
-        pass
+        mistakes += 1
 
     visible = ""
     for character in secret:
         if character in guessed:
             # Add character to visible.
-            pass
+            visible += character
+
         else:
             # Add an underscore to visible.
-            pass
+            visible += "_"
 
     print("Word:", visible)
     print("Mistakes left:", 6 - mistakes)
 
     if visible == secret:
         # Print a winning message and break the loop.
-        pass
+        print("Winner, Winner Chicken Dinner!")
 
 if mistakes == 6:
     print("The word was:", secret)
