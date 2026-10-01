@@ -13,19 +13,29 @@ def compare_moves(player, opponent):
         return "draw"
     elif player == "rock":
         # Win against scissors; otherwise lose.
-        pass
+        if opponent == "scissors":
+            return "win"
+        else:
+            return "loss"
+
     elif player == "paper":
         # Compare with the opponent and return the result.
-        pass
+        if opponent == "rock":
+            return "win"
+        else:
+            return "loss"
     else:  # The player chose scissors.
         # Compare with the opponent and return the result.
-        pass
+        if opponent == "paper":
+            return "win"
+        else:
+            return "loss"
 
 
 # Uncomment these examples after completing the function:
-# print(compare_moves("paper", "rock"))       # Expected: win
-# print(compare_moves("rock", "paper"))       # Expected: loss
-# print(compare_moves("scissors", "scissors")) # Expected: draw
+print(compare_moves("paper", "rock"))       # Expected: win
+print(compare_moves("rock", "paper"))       # Expected: loss
+print(compare_moves("scissors", "scissors"))  # Expected: draw
 
 # Play five rounds.
 for round_number in range(1, 6):
@@ -35,7 +45,8 @@ for round_number in range(1, 6):
     print("Computer:", opponent)
 
     # Call compare_moves with the two moves and print the returned result.
-
+result = compare_moves(player, opponent)
+print("Result:", result)
 # Optional extensions:
 # - Reject entries that are not in moves; ask again without using a round.
 # - Convert uppercase input to lowercase and strip outer spaces.
