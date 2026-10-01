@@ -8,20 +8,26 @@ secret = "4271"
 print("Guess the four-digit code.")
 
 while True:
-    guess = input("Your guess: ")
+    guess = input("Your guess:")
+    if len(guess) != 4:
+        print("Please enter exactly four digits.")
+        continue
 
     bulls = 0
     cows = 0
 
     for i in range(4):
-        # If guess[i] matches secret[i], add one bull.
-        # Otherwise, if guess[i] is in secret, add one cow.
-        # Use if / elif so a digit is not counted twice.
-        pass
 
-    # Print the number of bulls and cows.
+        if guess[i] == secret[i]:
+            bulls += 1
+        elif guess[i] in secret:
+            cows += 1
 
-    # If there are four bulls, print a winning message and break the loop.
+    print(f"{bulls} bulls, {cows} cows")
+
+    if bulls == 4:
+        print("Winner, Winner Chicken Dinner!")
+        break
 
 # Try 1234: 1 bull, 2 cows. Try 4271: 4 bulls, 0 cows; game ends.
 
